@@ -21,7 +21,7 @@ const Header = ({navigation}) => {
                 <TextInput
                     autoCapitalize="none"
                     autoCorrect={false}
-                    placeholder="search for a specific ingredient"
+                    placeholder="search for a drink"
                     placeholderTextColor="#999"
                     style={styles.inputSearch}
                     value={inputSearchValue}

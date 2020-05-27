@@ -3,15 +3,17 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         width: 150,
-        height: 150,
+        height: 220,
         overflow: 'hidden',
-        borderRadius: 20,
-        backgroundColor: '#f5d74f',
         marginBottom: 20,
         marginHorizontal: 10,
-        justifyContent: 'center',
+
         alignItems: 'center',
-        elevation: 2,
+    },
+    imageThumbContainer: {
+        width: 150,
+        height: 150,
+        elevation: 15,
         shadowColor: '#000',
         shadowOpacity: 0.2,
         shadowRadius: 2,
@@ -19,6 +21,11 @@ export const styles = StyleSheet.create({
             width: 1,
             height: 2,
         },
+    },
+    imageThumb: {
+        width: 150,
+        height: 150,
+        borderRadius: 20,
     },
     textName: {
         fontSize: 18,

@@ -1,9 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const width = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
     containerHeader: {
-        height: 300,
-        width: '100%',
+        height: 280,
+        width: width,
         alignItems: 'center',
     },
     logo: {
