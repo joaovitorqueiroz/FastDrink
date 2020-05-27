@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TextInput} from 'react-native';
+import {View, Image, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {styles} from './styles';
 
 import logo from './img/logo.png';
-
-// import { Container } from './styles';
 
 const Header = ({navigation}) => {
     const [inputSearchValue, setInputSearchValue] = useState('');

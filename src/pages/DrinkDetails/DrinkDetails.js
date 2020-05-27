@@ -6,7 +6,6 @@ import ListIngredients from './Components/ListIngredients/ListIngredients';
 
 import {styles} from './styles';
 
-//import {drink} from '../../data/drink';
 import api from '../../service/api';
 
 const DrinkDetails = ({route}) => {
