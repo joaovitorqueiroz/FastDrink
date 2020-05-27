@@ -19,7 +19,11 @@ const routes = () => {
                 component={Drinks}
                 options={({route}) => ({title: route.params.name})}
             />
-            <Stack.Screen name="DrinkDetails" component={DrinkDetails} />
+            <Stack.Screen
+                name="DrinkDetails"
+                component={DrinkDetails}
+                options={({route}) => ({title: route.params.name})}
+            />
         </Stack.Navigator>
     );
 };

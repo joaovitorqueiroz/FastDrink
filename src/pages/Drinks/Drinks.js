@@ -1,18 +1,31 @@
 import React from 'react';
-import {Text, View, Button} from 'react-native';
+import {View, SafeAreaView, FlatList} from 'react-native';
 
-// import { Container } from './styles';
+import Card from './Components/Card/Card';
 
-const Drinks = (props) => {
-    console.log(props);
+import {styles} from './styles';
+
+import {drinks} from '../../data/drinks';
+
+const Drinks = ({navigation}) => {
     return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Home Screen</Text>
-            <Button
-                title={'Go to DrinksDetails '}
-                onPress={() => props.navigation.navigate('DrinkDetails')}
-            />
-        </View>
+        <SafeAreaView>
+            <View style={styles.container}>
+                <FlatList
+                    data={drinks.drinks}
+                    numColumns={2}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({item}) => (
+                        <Card
+                            navigation={navigation}
+                            drinkName={item.strDrink}
+                            thumbUri={item.strDrinkThumb}
+                        />
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </View>
+        </SafeAreaView>
     );
 };
 
