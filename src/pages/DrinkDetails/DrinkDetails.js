@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, ScrollView, Text, Image, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -6,9 +6,20 @@ import ListIngredients from './Components/ListIngredients/ListIngredients';
 
 import {styles} from './styles';
 
-import {drink} from '../../data/drink';
+//import {drink} from '../../data/drink';
+import api from '../../service/api';
 
-const DrinkDetails = () => {
+const DrinkDetails = ({route}) => {
+    const {idDrink} = route.params;
+    const [drink, setDrink] = useState([]);
+    useEffect(() => {
+        api.get('/lookup.php?i=' + idDrink)
+            .then(async (response) => {
+                console.log(response.data.drinks[0]);
+                setDrink(response.data.drinks[0]);
+            })
+            .catch((error) => {});
+    }, [idDrink]);
     return (
         <SafeAreaView>
             <ScrollView style={styles.scrollViewContainer}>
@@ -16,12 +27,12 @@ const DrinkDetails = () => {
                     <Image
                         style={styles.imageDrink}
                         source={{
-                            uri: drink.drinks[0].strDrinkThumb,
+                            uri: drink.strDrinkThumb,
                         }}
                     />
                     <View style={styles.typeDrinkContainer}>
                         <Text style={styles.typeDrinkText}>
-                            {drink.drinks[0].strAlcoholic}
+                            {drink.strAlcoholic}
                         </Text>
                     </View>
                 </View>
@@ -34,14 +45,14 @@ const DrinkDetails = () => {
                         />
                         <Text style={styles.title}>Ingredients</Text>
                     </View>
-                    <ListIngredients drink={drink.drinks[0]} />
+                    <ListIngredients drink={drink} />
                     <View style={styles.titleContainer}>
                         <Icon name="library-books" size={30} color="#333" />
                         <Text style={styles.title}>Instructions</Text>
                     </View>
                     <View style={styles.instructionsContainer}>
                         <Text style={styles.instructionsText}>
-                            {drink.drinks[0].strInstructions}
+                            {drink.strInstructions}
                         </Text>
                     </View>
                 </View>

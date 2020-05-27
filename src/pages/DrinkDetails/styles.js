@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
     imageDrink: {
         width: width,
         height: width,
-        borderBottomEndRadius: 30,
-        borderBottomStartRadius: 30,
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
     },
     typeDrinkContainer: {
         height: 60,

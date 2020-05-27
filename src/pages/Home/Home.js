@@ -1,20 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, Button, FlatList, SafeAreaView} from 'react-native';
 
-import {categories} from '../../data/categories';
 import Card from './Components/Card/Card';
 import Header from './Components/Header/Header';
 import {styles} from './styles';
 
+import api from '../../service/api';
+
 const Home = ({navigation}) => {
-    console.log(categories);
+    const [drinkCategories, setDrinkCategories] = useState([]);
+    useEffect(() => {
+        api.get('/list.php?c=list')
+            .then(async (response) => {
+                console.log(response.data);
+                setDrinkCategories(response.data.drinks);
+            })
+            .catch((error) => {});
+    }, []);
     return (
         <SafeAreaView>
             <View style={styles.container}>
                 <FlatList
-                    data={categories.drinks}
+                    data={drinkCategories}
                     numColumns={2}
-                    ListHeaderComponent={Header}
+                    ListHeaderComponent={<Header navigation={navigation} />}
                     showsVerticalScrollIndicator={false}
                     renderItem={({item}) => (
                         <Card

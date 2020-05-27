@@ -7,8 +7,14 @@ import logo from './img/logo.png';
 
 // import { Container } from './styles';
 
-const Header = () => {
+const Header = ({navigation}) => {
     const [inputSearchValue, setInputSearchValue] = useState('');
+    function handleSearch() {
+        navigation.navigate('Drinks', {
+            name: inputSearchValue,
+            searchOfInputDrink: true,
+        });
+    }
     return (
         <View style={styles.containerHeader}>
             <Image style={styles.logo} source={logo} />
@@ -23,8 +29,14 @@ const Header = () => {
                     value={inputSearchValue}
                     onChangeText={setInputSearchValue}
                     returnKeyType={'go'}
+                    onSubmitEditing={() => handleSearch()}
                 />
-                <Icon name="search" size={30} color="#999" />
+                <Icon
+                    onPress={() => handleSearch()}
+                    name="search"
+                    size={30}
+                    color="#999"
+                />
             </View>
         </View>
     );

@@ -3,9 +3,12 @@ import {View, Image, Text, TouchableOpacity} from 'react-native';
 
 import {styles} from './styles';
 
-const Card = ({navigation, thumbUri, drinkName}) => {
+const Card = ({navigation, thumbUri, drinkName, idDrink}) => {
     function handleCard() {
-        navigation.navigate('DrinkDetails', {name: drinkName});
+        navigation.navigate('DrinkDetails', {
+            name: drinkName,
+            idDrink: idDrink,
+        });
     }
     return (
         <TouchableOpacity onPress={() => handleCard()}>

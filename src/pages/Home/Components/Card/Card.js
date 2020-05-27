@@ -6,7 +6,10 @@ import ico from './img/ico.png';
 
 const Cards = ({categoryName, navigation}) => {
     function handleCard() {
-        navigation.navigate('Drinks', {name: categoryName});
+        navigation.navigate('Drinks', {
+            name: categoryName,
+            searchOfInputDrink: false,
+        });
     }
     return (
         <TouchableOpacity onPress={() => handleCard()}>
