@@ -1,11 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, FlatList, SafeAreaView, ScrollView} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {
+    View,
+    Text,
+    FlatList,
+    SafeAreaView,
+    ScrollView,
+    Dimensions,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {styles} from './styles';
 import Card from './Components/Card/Card';
 import Header from './Components/Header/Header';
 import removeSpaceString from '../../utils/removeSpaceString';
+import YoutubePlayer from 'react-native-youtube-iframe';
 
 import api from '../../service/api';
 
@@ -36,7 +44,7 @@ const Home = ({navigation}) => {
         //console.log(response.data.drinks[0].strDrinkThumb);
         return response.data.drinks[0].strDrinkThumb;
     }
-
+    const width = Dimensions.get('window').width;
     return (
         <SafeAreaView>
             <ScrollView>
@@ -65,6 +73,19 @@ const Home = ({navigation}) => {
                     <Icon name="video-library" size={30} color="#999" />
                     <Text style={styles.titleText}> Fast Tutorial </Text>
                 </View>
+                <YoutubePlayer
+                    //ref={playerRef}
+                    height={300}
+                    width={width}
+                    videoId={'kbGCnu39YGM'}
+                    play={false}
+                    volume={50}
+                    playbackRate={1}
+                    playerParams={{
+                        cc_lang_pref: 'us',
+                        showClosedCaptions: true,
+                    }}
+                />
             </ScrollView>
         </SafeAreaView>
     );

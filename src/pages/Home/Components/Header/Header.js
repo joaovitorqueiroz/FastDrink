@@ -26,7 +26,7 @@ const Header = ({navigation}) => {
                     style={styles.inputSearch}
                     value={inputSearchValue}
                     onChangeText={setInputSearchValue}
-                    returnKeyType={'go'}
+                    returnKeyType={'search'}
                     onSubmitEditing={() => handleSearch()}
                 />
                 <Icon

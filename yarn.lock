@@ -2368,6 +2368,11 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -2700,6 +2705,11 @@ eventemitter3@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
+
+events@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.1.0.tgz#84279af1b34cb75aa88bf5ff291f6d0bd9b31a59"
+  integrity sha512-Rv+u8MLHNOdMjTAFeT3nCjHn2aGlx435FP/sDHNaRhDEMwyI/aB22Kj2qIN8R0cw3z28psEQLYwxVKLsKrMgWg==
 
 exec-sh@^0.3.2:
   version "0.3.4"
@@ -3388,7 +3398,7 @@ internal-slot@^1.0.2:
     has "^1.0.3"
     side-channel "^1.0.2"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -5451,6 +5461,21 @@ react-native-vector-icons@^6.6.0:
     lodash "^4.0.0"
     prop-types "^15.6.2"
     yargs "^13.2.2"
+
+react-native-webview@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-10.1.0.tgz#57ddb199e6f574b5a31196a6343b89f3998b815c"
+  integrity sha512-caoM/sd2bZkcMtU4s6UNAnS1BXHYh0EnGci5iju/uDTWCydfSpK6Lt2GwD9DL4dy9znJXPjSDKcMsnxCB+Lz7g==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
+
+react-native-youtube-iframe@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-youtube-iframe/-/react-native-youtube-iframe-1.2.4.tgz#80c6f99784f3a13b1c9deb7a93e91b84fdd66ebd"
+  integrity sha512-VP2pO+mMrfOqNKwcRExfl9/BOPxnu9UWQt8pUWW4FNAFeSPld9mUVFmdqoTGtbbe2mAf2dwPY+gKSHbviUWPrg==
+  dependencies:
+    events "^3.0.0"
 
 react-native@0.62.2:
   version "0.62.2"
