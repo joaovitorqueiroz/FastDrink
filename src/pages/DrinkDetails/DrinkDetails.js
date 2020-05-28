@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, ScrollView, Text, Image, SafeAreaView} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {ScrollView, SafeAreaView} from 'react-native';
 
 import Header from './Components/Header/Header';
 import Ingredients from './Components/Ingredients/Ingredients';
@@ -23,12 +22,10 @@ const DrinkDetails = ({route}) => {
     }, [idDrink]);
     return (
         <SafeAreaView>
-            <ScrollView style={styles.scrollViewContainer}>
+            <ScrollView>
                 <Header drink={drink} />
-                <View style={styles.bodyContainer}>
-                    <Ingredients drink={drink} />
-                    <Instructions drink={drink} />
-                </View>
+                <Ingredients drink={drink} />
+                <Instructions drink={drink} />
             </ScrollView>
         </SafeAreaView>
     );
