@@ -35,6 +35,7 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         height: 55,
         width: '85%',
+        color: '#333',
         paddingHorizontal: 15,
     },
 });

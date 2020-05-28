@@ -20,5 +20,6 @@ export const styles = StyleSheet.create({
     instructionsText: {
         fontSize: 16,
         textAlign: 'justify',
+        color: '#333',
     },
 });

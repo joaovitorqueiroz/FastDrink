@@ -23,5 +23,6 @@ export const styles = StyleSheet.create({
     typeDrinkText: {
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#333',
     },
 });

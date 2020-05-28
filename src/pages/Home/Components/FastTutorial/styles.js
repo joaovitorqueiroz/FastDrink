@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
     },
     titleText: {
         marginLeft: 20,
-        fontSize: 20,
+        fontSize: 18,
+        color: '#333',
     },
     videoContainer: {
         marginBottom: 30,

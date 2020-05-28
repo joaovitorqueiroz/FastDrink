@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     imageThumbContainer: {
         width: 150,
         height: 150,
-        elevation: 15,
+        elevation: 2,
         shadowColor: '#000',
         shadowOpacity: 0.2,
         shadowRadius: 2,
@@ -28,8 +28,9 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
     },
     textName: {
-        fontSize: 18,
+        fontSize: 15,
         marginTop: 5,
+        color: '#333',
         textAlign: 'center',
     },
 });

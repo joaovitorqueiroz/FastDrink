@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     title: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#fff',

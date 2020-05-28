@@ -24,9 +24,11 @@ export const styles = StyleSheet.create({
     measureText: {
         marginLeft: 35,
         fontSize: 16,
+        color: '#333',
     },
     ingredientText: {
         marginLeft: 5,
         fontSize: 16,
+        color: '#333',
     },
 });

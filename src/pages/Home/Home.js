@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, ScrollView} from 'react-native';
+import {View, SafeAreaView, ScrollView, Alert} from 'react-native';
 
 import {styles} from './styles';
 import Header from './Components/Header/Header';
@@ -26,7 +26,14 @@ const Home = ({navigation}) => {
                 //console.log(await Promise.all(arrayPromises));
                 setDrinkCategories(await Promise.all(arrayPromises));
             })
-            .catch((error) => {});
+            .catch((error) => {
+                Alert.alert(
+                    'Connection fail',
+                    'Could not connect to the server',
+                    [{text: 'OK'}],
+                    {cancelable: false},
+                );
+            });
     }, []);
 
     async function getUriFirstDrinkCategory(category) {

@@ -5,4 +5,9 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 20,
     },
+    notFoundContainer: {},
+    notFoundText: {
+        fontSize: 16,
+        color: '#333',
+    },
 });
