@@ -13,7 +13,7 @@ for IOS application two more commands will be needed `cd ios` and `pod install`
 ### Home page
 
 <h4 align="center">
-<img src="./img/DrinkDetailsPage.png" width="350px" /><br>
+<img src="./img/HomePage.png" width="350px" /><br>
  <b>Home Page</b> 
 </h4>
 
@@ -21,9 +21,19 @@ This page allows you to search for drinks, list the categories and show some vid
 
 ### Drinks page
 
+<h4 align="center">
+<img src="./img/DrinksPage.png" width="350px" /><br>
+ <b>Drinks Page</b> 
+</h4>
+
 This page lists the drinks of a selected category on the Home page or the drinks from the drinks search
 
 ### DrinksDetails
+
+<h4 align="center">
+<img src="./img/DrinkDetailsPage.png" width="350px" /><br>
+ <b>DrinkDetails Page</b> 
+</h4>
 
 this page shows an image of the drink, its type (alcoholic or non-alcoholic), its ingredients and its method of preparation.
 
