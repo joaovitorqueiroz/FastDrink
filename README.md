@@ -12,6 +12,11 @@ for IOS application two more commands will be needed `cd ios` and `pod install`
 
 ### Home page
 
+<h4 align="center">
+<img src="./img/DrinkDetailsPage.png" width="350px" /><br>
+ <b>Home Page</b> 
+</h4>
+
 This page allows you to search for drinks, list the categories and show some video tutorials.
 
 ### Drinks page
@@ -24,4 +29,4 @@ this page shows an image of the drink, its type (alcoholic or non-alcoholic), it
 
 ### API Data
 
-this application consumes the data from the [thecocktaildb Pages](https://www.thecocktaildb.com/)
+this application consumes the data from the [thecocktaildb](https://www.thecocktaildb.com/)
