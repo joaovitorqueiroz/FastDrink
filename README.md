@@ -8,6 +8,11 @@
 
 for IOS application two more commands will be needed `cd ios` and `pod install`
 
+### Execute application:
+
+Android `npx react-native run-android`
+IOS `npx react-native run-ios`
+
 ## features:
 
 ### Home page
