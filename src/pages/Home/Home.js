@@ -1,19 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {
-    View,
-    Text,
-    FlatList,
-    SafeAreaView,
-    ScrollView,
-    Dimensions,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React, {useState, useEffect} from 'react';
+import {View, SafeAreaView, ScrollView} from 'react-native';
 
 import {styles} from './styles';
-import Card from './Components/Card/Card';
 import Header from './Components/Header/Header';
+import ListCategories from './Components/ListCategories/ListCategories';
+import FastTutorial from './Components/FastTutorial/FastTutorial';
 import removeSpaceString from '../../utils/removeSpaceString';
-import YoutubePlayer from 'react-native-youtube-iframe';
 
 import api from '../../service/api';
 
@@ -44,48 +36,18 @@ const Home = ({navigation}) => {
         //console.log(response.data.drinks[0].strDrinkThumb);
         return response.data.drinks[0].strDrinkThumb;
     }
-    const width = Dimensions.get('window').width;
+
     return (
         <SafeAreaView>
             <ScrollView>
-                <Header navigation={navigation} />
-                <View style={styles.titleContainer}>
-                    <Icon name="search" size={30} color="#999" />
-                    <Text style={styles.titleText}> Categories </Text>
-                </View>
-
-                <View style={styles.flatListContainer}>
-                    <FlatList
-                        data={drinkCategories}
-                        showsHorizontalScrollIndicator={false}
-                        horizontal={true}
-                        renderItem={({item}) => (
-                            <Card
-                                categoryName={item.strCategory}
-                                navigation={navigation}
-                                uriImage={item.uriImage}
-                            />
-                        )}
-                        keyExtractor={(item, index) => index.toString()}
+                <View style={styles.container}>
+                    <Header navigation={navigation} />
+                    <ListCategories
+                        drinkCategories={drinkCategories}
+                        navigation={navigation}
                     />
+                    <FastTutorial />
                 </View>
-                <View style={styles.titleContainer}>
-                    <Icon name="video-library" size={30} color="#999" />
-                    <Text style={styles.titleText}> Fast Tutorial </Text>
-                </View>
-                <YoutubePlayer
-                    //ref={playerRef}
-                    height={300}
-                    width={width}
-                    videoId={'kbGCnu39YGM'}
-                    play={false}
-                    volume={50}
-                    playbackRate={1}
-                    playerParams={{
-                        cc_lang_pref: 'us',
-                        showClosedCaptions: true,
-                    }}
-                />
             </ScrollView>
         </SafeAreaView>
     );
