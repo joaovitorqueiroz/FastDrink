@@ -6,6 +6,17 @@ export const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginBottom: 30,
     },
+    titleContainer: {
+        marginLeft: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    title: {
+        marginLeft: 30,
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#333',
+    },
     rowIngredients: {
         flexDirection: 'row',
         alignItems: 'center',

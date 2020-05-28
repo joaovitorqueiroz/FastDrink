@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {View, ScrollView, Text, Image, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import ListIngredients from './Components/ListIngredients/ListIngredients';
+import Header from './Components/Header/Header';
+import Ingredients from './Components/Ingredients/Ingredients';
+import Instructions from './Components/Instructions/Instructions';
 
 import {styles} from './styles';
 
@@ -22,38 +24,10 @@ const DrinkDetails = ({route}) => {
     return (
         <SafeAreaView>
             <ScrollView style={styles.scrollViewContainer}>
-                <View style={styles.headerContainer}>
-                    <Image
-                        style={styles.imageDrink}
-                        source={{
-                            uri: drink.strDrinkThumb,
-                        }}
-                    />
-                    <View style={styles.typeDrinkContainer}>
-                        <Text style={styles.typeDrinkText}>
-                            {drink.strAlcoholic}
-                        </Text>
-                    </View>
-                </View>
+                <Header drink={drink} />
                 <View style={styles.bodyContainer}>
-                    <View style={styles.titleContainer}>
-                        <Icon
-                            name="format-list-numbered"
-                            size={30}
-                            color="#333"
-                        />
-                        <Text style={styles.title}>Ingredients</Text>
-                    </View>
-                    <ListIngredients drink={drink} />
-                    <View style={styles.titleContainer}>
-                        <Icon name="library-books" size={30} color="#333" />
-                        <Text style={styles.title}>Instructions</Text>
-                    </View>
-                    <View style={styles.instructionsContainer}>
-                        <Text style={styles.instructionsText}>
-                            {drink.strInstructions}
-                        </Text>
-                    </View>
+                    <Ingredients drink={drink} />
+                    <Instructions drink={drink} />
                 </View>
             </ScrollView>
         </SafeAreaView>
