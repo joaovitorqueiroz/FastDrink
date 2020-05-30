@@ -15,7 +15,6 @@ const DrinkDetails = ({route, navigation}) => {
     useEffect(() => {
         api.get('/lookup.php?i=' + idDrink)
             .then(async (response) => {
-                console.log(response.data.drinks[0]);
                 setDrink(response.data.drinks[0]);
             })
             .catch((error) => {

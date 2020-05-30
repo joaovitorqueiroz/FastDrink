@@ -22,7 +22,6 @@ const Ingredients = ({drink}) => {
                 );
             }
         }
-        console.log(Ingredients);
         return Ingredients;
     }
     return (
