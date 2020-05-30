@@ -11,42 +11,41 @@ const Drinks = ({navigation, route}) => {
     const {name} = route.params;
     const {searchOfInputDrink} = route.params;
     const [drinks, setDrinks] = useState([]);
-
-    if (searchOfInputDrink) {
-        api.get('/search.php?s=' + removeSpaceString(name))
-            .then(async (response) => {
-                console.log(response.data);
-                setDrinks(response.data.drinks);
-            })
-            .catch((error) => {
-                alert();
-            });
-    } else {
-        api.get('/filter.php?c=' + removeSpaceString(name))
-            .then(async (response) => {
-                console.log(response.data);
-                setDrinks(response.data.drinks);
-            })
-            .catch((error) => {
-                alert();
-            });
-    }
-
-    function alert() {
-        Alert.alert(
-            'Connection fail',
-            'Could not connect to the server',
-            [
+    useEffect(() => {
+        if (searchOfInputDrink) {
+            api.get('/search.php?s=' + removeSpaceString(name))
+                .then(async (response) => {
+                    setDrinks(response.data.drinks);
+                })
+                .catch((error) => {
+                    alert();
+                });
+        } else {
+            api.get('/filter.php?c=' + removeSpaceString(name))
+                .then(async (response) => {
+                    setDrinks(response.data.drinks);
+                })
+                .catch((error) => {
+                    alert();
+                });
+        }
+        function alert() {
+            Alert.alert(
+                'Connection fail',
+                'Could not connect to the server',
+                [
+                    {
+                        text: 'OK',
+                        onPress: () => navigation.navigate('Home'),
+                    },
+                ],
                 {
-                    text: 'OK',
-                    onPress: () => navigation.navigate('Home'),
+                    cancelable: false,
                 },
-            ],
-            {
-                cancelable: false,
-            },
-        );
-    }
+            );
+        }
+    }, [name, searchOfInputDrink, navigation]);
+
     return (
         <SafeAreaView>
             <View style={styles.container}>
