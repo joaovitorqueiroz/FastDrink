@@ -1,10 +1,15 @@
 import React from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
+import {useDispatch} from 'react-redux';
+
+import {drinkDetailsRequest} from '../../../../store/modules/drinkDetails/actions';
 
 import {styles} from './styles';
 
 const Card = ({navigation, thumbUri, drinkName, idDrink}) => {
+    const dispatch = useDispatch();
     function handleCard() {
+        dispatch(drinkDetailsRequest(idDrink));
         navigation.navigate('DrinkDetails', {
             name: drinkName,
             idDrink: idDrink,

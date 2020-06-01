@@ -1,10 +1,15 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {useDispatch} from 'react-redux';
+
+import {listDrinksOfCategoryRequest} from '../../../../store/modules/drinks/actions';
 
 import {styles} from './styles';
 
 const Cards = ({categoryName, uriImage, navigation}) => {
+    const dispatch = useDispatch();
     function handleCard() {
+        dispatch(listDrinksOfCategoryRequest(categoryName));
         navigation.navigate('Drinks', {
             name: categoryName,
             searchOfInputDrink: false,

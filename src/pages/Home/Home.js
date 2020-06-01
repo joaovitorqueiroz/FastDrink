@@ -1,48 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {View, SafeAreaView, ScrollView, Alert} from 'react-native';
-
+import {connect, useDispatch} from 'react-redux';
 import {styles} from './styles';
 import Header from './Components/Header/Header';
 import ListCategories from './Components/ListCategories/ListCategories';
 import FastTutorial from './Components/FastTutorial/FastTutorial';
-import removeSpaceString from '../../utils/removeSpaceString';
 
-import api from '../../service/api';
+import {listDrinksCategoriesRequest} from '../../store/modules/home/actions';
 
-const Home = ({navigation}) => {
-    const [drinkCategories, setDrinkCategories] = useState([]);
+const Home = ({navigation, drinkCategories}) => {
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        api.get('/list.php?c=list')
-            .then(async (response) => {
-                let arrayPromises = response.data.drinks.map(async (item) => {
-                    return {
-                        uriImage:
-                            (await getUriFirstDrinkCategory(item.strCategory)) +
-                            '/preview',
-                        strCategory: item.strCategory,
-                    };
-                });
-                //console.log(await Promise.all(arrayPromises));
-                setDrinkCategories(await Promise.all(arrayPromises));
-            })
-            .catch((error) => {
-                Alert.alert(
-                    'Connection fail',
-                    'Could not connect to the server',
-                    [{text: 'OK'}],
-                    {cancelable: false},
-                );
-            });
-    }, []);
-
-    async function getUriFirstDrinkCategory(category) {
-        const response = await api.get(
-            '/filter.php?c=' + removeSpaceString(category),
-        );
-        //console.log(response.data.drinks[0].strDrinkThumb);
-        return response.data.drinks[0].strDrinkThumb;
-    }
+        dispatch(listDrinksCategoriesRequest());
+    }, [dispatch]);
 
     return (
         <SafeAreaView>
@@ -60,4 +31,6 @@ const Home = ({navigation}) => {
     );
 };
 
-export default Home;
+export default connect((state) => ({
+    drinkCategories: state.drinksCategories,
+}))(Home);

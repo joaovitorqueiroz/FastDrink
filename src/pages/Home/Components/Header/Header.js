@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import {View, Image, TextInput} from 'react-native';
+import {useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {styles} from './styles';
 
+import {listDrinksOfSearchRequest} from '../../../../store/modules/drinks/actions';
 import logo from './img/logo.png';
 
 const Header = ({navigation}) => {
+    const dispatch = useDispatch();
     const [inputSearchValue, setInputSearchValue] = useState('');
     function handleSearch() {
+        dispatch(listDrinksOfSearchRequest(inputSearchValue));
         navigation.navigate('Drinks', {
             name: inputSearchValue,
             searchOfInputDrink: true,
